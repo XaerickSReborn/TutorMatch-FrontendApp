@@ -233,21 +233,13 @@
   ],
   "tutorings": [
     {
-      "id": 1,
-      "title": "Clases de Introducción a los Algoritmos",
-      "description": "Sesiones personalizadas para aprender los fundamentos de algoritmos.",
-      "price": 50,
-      "image": "https://example.com/images/algorithms.jpg",
-      "tutorId": 1,
-      "courseId": 1
-    },
-    {
-      "id": 2,
-      "title": "Desarrollo de Aplicaciones Open Source (Fifth)",
-      "description": "Prueba Final",
-      "price": 25.99,
+      "id": 5,
+      "title": "Introducción a los Algoritmos (1 Cycle)",
+      "description": "Clase de Introducción a los Algoritmos",
+      "price": 47.66,
       "times": {
         "0": [
+          "9-10",
           "10-11",
           "11-12"
         ],
@@ -256,8 +248,36 @@
           "11-12"
         ],
         "2": [
+          "9-10",
+          "10-11"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 4,
+      "courseId": 1
+    },
+    {
+      "id": 7,
+      "title": "Introducción a los Algoritmos (1 Cycle)",
+      "description": "Clase de Introducción a los Algoritmos",
+      "price": 14.48,
+      "times": {
+        "0": [
+          "10-11"
+        ],
+        "1": [
+          "8-9",
+          "9-10",
           "10-11",
           "11-12"
+        ],
+        "2": [
+          "8-9",
+          "9-10"
         ],
         "3": [],
         "4": [],
@@ -266,42 +286,126 @@
       },
       "image": "",
       "tutorId": 1,
-      "courseId": 8
+      "courseId": 1
     },
     {
-      "id": 3,
-      "title": "Aplicaciones para Dispositivos Móviles (Sixth)",
-      "description": "Aplicaciones para Dispositivos Móviles",
-      "price": 20,
+      "id": 8,
+      "title": "Introducción a los Algoritmos (1 Cycle)",
+      "description": "Clase de Introducción a los Algoritmos",
+      "price": 40.86,
       "times": {
-        "0": [],
-        "1": [],
+        "0": [
+          "9-10",
+          "10-11"
+        ],
+        "1": [
+          "10-11",
+          "11-12"
+        ],
         "2": [
+          "9-10",
+          "10-11"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 3,
+      "courseId": 1
+    },
+    {
+      "id": 9,
+      "title": "Introducción a los Algoritmos (1 Cycle)",
+      "description": "Clase de Introducción a los Algoritmos",
+      "price": 42.15,
+      "times": {
+        "0": [
+          "8-9",
+          "9-10",
+          "10-11"
+        ],
+        "1": [
           "10-11",
           "11-12"
         ],
-        "3": [
-          "10-11",
-          "11-12"
+        "2": [
+          "8-9",
+          "9-10",
+          "10-11"
         ],
+        "3": [],
         "4": [],
         "5": [],
         "6": []
       },
       "image": "",
       "tutorId": 1,
-      "courseId": 9
+      "courseId": 1
     },
     {
-      "id": 4,
-      "title": "Fundamentos de Arquitectura de Software (Seventh)",
-      "description": "hola",
-      "price": 50,
+      "id": 11,
+      "title": "Algoritmos (2 Cycle)",
+      "description": "Clase de Algoritmos",
+      "price": 31.28,
       "times": {
-        "0": [],
+        "0": [
+          "10-11",
+          "11-12"
+        ],
+        "1": [
+          "8-9",
+          "9-10",
+          "10-11"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 4,
+      "courseId": 2
+    },
+    {
+      "id": 12,
+      "title": "Algoritmos (2 Cycle)",
+      "description": "Clase de Algoritmos",
+      "price": 13.25,
+      "times": {
+        "0": [
+          "8-9",
+          "9-10"
+        ],
+        "1": [
+          "9-10",
+          "10-11"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 3,
+      "courseId": 2
+    },
+    {
+      "id": 13,
+      "title": "Algoritmos (2 Cycle)",
+      "description": "Clase de Algoritmos",
+      "price": 26.76,
+      "times": {
+        "0": [
+          "9-10",
+          "10-11"
+        ],
         "1": [
           "10-11",
-          "15-16"
+          "11-12"
         ],
         "2": [],
         "3": [],
@@ -311,7 +415,186 @@
       },
       "image": "",
       "tutorId": 1,
+      "courseId": 2
+    },
+    {
+      "id": 15,
+      "title": "Algoritmos y Estructuras de Datos (3 Cycle)",
+      "description": "Clase de Algoritmos y Estructuras de Datos",
+      "price": 35.97,
+      "times": {
+        "0": [
+          "9-10",
+          "10-11"
+        ],
+        "1": [
+          "10-11"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 4,
+      "courseId": 3
+    },
+    {
+      "id": 16,
+      "title": "Algoritmos y Estructuras de Datos (3 Cycle)",
+      "description": "Clase de Algoritmos y Estructuras de Datos",
+      "price": 44.24,
+      "times": {
+        "0": [
+          "9-10"
+        ],
+        "1": [
+          "9-10",
+          "10-11"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 1,
+      "courseId": 3
+    },
+    {
+      "id": 18,
+      "title": "Algoritmos y Estructuras de Datos (3 Cycle)",
+      "description": "Clase de Algoritmos y Estructuras de Datos",
+      "price": 29.11,
+      "times": {
+        "0": [
+          "9-10",
+          "10-11"
+        ],
+        "1": [
+          "10-11"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 3,
+      "courseId": 3
+    },
+    {
+      "id": 19,
+      "title": "Algoritmos y Estructuras de Datos (3 Cycle)",
+      "description": "Clase de Algoritmos y Estructuras de Datos",
+      "price": 18.25,
+      "times": {
+        "0": [
+          "9-10",
+          "10-11"
+        ],
+        "1": [
+          "9-10"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 1,
+      "courseId": 3
+    },
+    {
+      "id": 20,
+      "title": "Arquitecturas de Software Emergentes (Eighth)",
+      "description": "Hola1",
+      "price": 12.4,
+      "times": {
+        "0": [],
+        "1": [
+          "10-11"
+        ],
+        "2": [],
+        "3": [],
+        "4": [
+          "10-11"
+        ],
+        "5": [
+          "11-12"
+        ],
+        "6": []
+      },
+      "image": "",
+      "tutorId": 3,
+      "courseId": 13
+    },
+    {
+      "id": 21,
+      "title": "Fundamentos de Arquitectura de Software (Seventh)",
+      "description": "HolaMundo2",
+      "price": 569.9,
+      "times": {
+        "0": [
+          "10-11"
+        ],
+        "1": [
+          "10-11"
+        ],
+        "2": [
+          "10-11"
+        ],
+        "3": [
+          "10-11"
+        ],
+        "4": [
+          "10-11"
+        ],
+        "5": [
+          "10-11"
+        ],
+        "6": [
+          "10-11"
+        ]
+      },
+      "image": "",
+      "tutorId": 4,
       "courseId": 12
+    },
+    {
+      "id": 22,
+      "title": "Complejidad Algorítmica (Sixth)",
+      "description": "Hexagonal",
+      "price": 66.6,
+      "times": {
+        "0": [
+          "10-11"
+        ],
+        "1": [
+          "10-11",
+          "15-16"
+        ],
+        "2": [
+          "11-12"
+        ],
+        "3": [],
+        "4": [
+          "10-11",
+          "11-12"
+        ],
+        "5": [],
+        "6": [
+          "10-11",
+          "11-12"
+        ]
+      },
+      "image": "",
+      "tutorId": 4,
+      "courseId": 10
     }
   ],
   "users": [

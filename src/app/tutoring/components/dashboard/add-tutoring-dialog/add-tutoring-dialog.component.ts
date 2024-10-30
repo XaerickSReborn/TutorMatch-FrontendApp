@@ -19,6 +19,7 @@ export class AddTutoringDialogComponent {
   whatTheyWillLearn = '';
   daysOfWeek = [0, 1, 2, 3, 4, 5, 6];
   timeSlots = ['10-11', '11-12', '15-16', '17-18', '20-21'];
+  currentUser: any;
   availableTimes: { [day: number]: { [timeSlot: string]: boolean } } = {};
 
   isFormValidFlag: boolean = false;
@@ -86,6 +87,15 @@ export class AddTutoringDialogComponent {
     private tutoringService: TutoringService
   ) {
     this.initializeTimeSlots();
+    this.loadCurrentUser();
+
+  }
+
+  loadCurrentUser(): void {
+    const userData = localStorage.getItem('currentUser');
+    if (userData) {
+      this.currentUser = JSON.parse(userData);
+    }
   }
 
   initializeTimeSlots(): void {
@@ -140,10 +150,9 @@ export class AddTutoringDialogComponent {
         price: this.price || 0,
         times: selectedTimes,
         image: '',
-        tutorId: 1,
+        tutorId: this.currentUser?.tutorId || 1,
         courseId: this.availableCourses.find(course => course.name === this.selectedCourse)?.id || 1
       };
-
       this.createTutoring(newTutoring);
     }
   }
@@ -168,13 +177,9 @@ export class AddTutoringDialogComponent {
   createTutoring(tutoring: any): void {
     this.tutoringService.createTutoring(tutoring).subscribe({
       next: (response) => {
-        console.log('Tutoring added successfully:', response);
         this.addTutoring.emit(response);
         this.dialogRef.close(response);
       },
-      error: (err) => {
-        console.error('Error adding tutoring:', err);
-      }
     });
   }
 

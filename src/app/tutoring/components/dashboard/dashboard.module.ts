@@ -28,6 +28,9 @@ import {RegisterComponent} from "../../../public/pages/register/register.compone
 import {GreetingComponent} from "./greeting/greeting.component";
 import {TranslateModule} from "@ngx-translate/core";
 import { AddTutoringDialogComponent } from './add-tutoring-dialog/add-tutoring-dialog.component';
+import {CourseListComponent} from "./course-list/course-list.component";
+import {CourseDetailComponent} from "../course-detail/course-detail.component";
+import {RouterLink} from "@angular/router";
 
 
 @NgModule({
@@ -37,7 +40,9 @@ import { AddTutoringDialogComponent } from './add-tutoring-dialog/add-tutoring-d
     GreetingComponent,
     CourseRecomComponent,
     SemestersComponent,
-    AddTutoringDialogComponent
+    AddTutoringDialogComponent,
+    CourseListComponent,
+    CourseDetailComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +53,7 @@ import { AddTutoringDialogComponent } from './add-tutoring-dialog/add-tutoring-d
     MatButton,
     MatCardSubtitle, MatCardTitle, LoginComponent, RegisterComponent,
     MatIconButton, MatFormFieldModule, MatInputModule, FormsModule, NgOptimizedImage, MatCard, MatCardHeader, MatAnchor, MatCardAvatar, MatTabGroup, MatTab, MatTabLabel, MatCardContent, MatCardImage, MatGridList, MatGridTile, FooterContentComponent, MatMenuTrigger, LanguageSwitcherComponent, MatMenu, PageNotFoundComponent, TranslateModule,
-    MatDialogModule, MatButtonModule, MatSelectModule, MatMenuItem],
+    MatDialogModule, MatButtonModule, MatSelectModule, MatMenuItem, RouterLink],
   exports: [DashboardComponent, ToolbarComponent]
 })
 export class DashboardModule { }

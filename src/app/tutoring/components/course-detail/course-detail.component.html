@@ -1,0 +1,50 @@
+<app-toolbar></app-toolbar>
+<div class="container" *ngIf="course">
+
+  <div class="course-detail">
+    <div class="course-info">
+      <div class="breadcrumbs">
+        <a href="#">{{ semesterName  }} Semester</a> > <a href="#">{{ course?.title || 'Curso no encontrado' }}</a>
+      </div>
+      <h1 class="course-title">{{ course?.title }}</h1>
+      <p class="course-description">{{ course?.description  }}</p>
+
+      <p class="course-rating">Calificación: 4.0 <span class="stars">★★★★★</span></p>
+
+      <p class="course-tutor" *ngIf="tutorName">Dictado por: {{ tutorName }}</p>
+
+      <div class="what-you-will-learn">
+        <h3>What you will learn</h3>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+
+      <div class="tutor-available-times">
+        <h3>Tutor available times</h3>
+        <table>
+          <tr>
+            <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+          </tr>
+          <tr>
+            <td *ngFor="let time of times['0']">{{ time }}</td>
+            <td *ngFor="let time of times['1']">{{ time}}</td>
+            <td *ngFor="let time of times['2']">{{ time}}</td>
+            <td *ngFor="let time of times['3']">{{ time}}</td>
+            <td *ngFor="let time of times['4']">{{ time}}</td>
+            <td *ngFor="let time of times['5']">{{ time}}</td>
+            <td *ngFor="let time of times['6']">{{ time}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="course-price-section">
+      <img *ngIf="courseImage" [src]="courseImage" alt="Imagen del curso">
+      <h2 *ngIf="coursePrice" class="course-price">S/{{ coursePrice }}</h2>
+      <button class="request-tutoring-button">Solicitar Tutoría</button>
+    </div>
+  </div>
+
+  <app-footer-content></app-footer-content>
+</div>
