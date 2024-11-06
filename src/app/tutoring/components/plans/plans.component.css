@@ -1,0 +1,183 @@
+.custom-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #252525;
+  height: 80px;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.icon-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-button {
+  text-transform: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.login-button, .register-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.plans-container {
+  text-align: center;
+  background: linear-gradient(-27deg, rgba(105,17,31,1) 0%, rgba(216,55,73,1) 50%, rgba(105,17,31,1) 100%);
+  color: white;
+  padding: 50px 0;
+  min-height: calc(91.6vh - 100px);
+}
+
+.plans-container h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.plans-container p {
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.plan-cards {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.plan-card {
+  background-color: #390000;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  height: 550px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan-card:hover {
+  transform: scale(1.05);
+}
+
+.plan-card h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.plan-card ul {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.plan-card button {
+  background-color: #D83749;
+  color: white;
+  align-self: center;
+  margin-top: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.payment-container {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  color: white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #EF496D;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(239, 73, 109, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #E33744;
+  transform: translateY(-2px);
+}
+
+.payment-container input,
+.payment-container select {
+  background-color: #313131;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.payment-container input:focus,
+.payment-container select:focus {
+  background-color: #313131;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .payment-container {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .close-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

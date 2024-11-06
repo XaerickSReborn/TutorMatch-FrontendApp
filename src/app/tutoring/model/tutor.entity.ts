@@ -1,7 +1,7 @@
 export class Tutor {
   id: number;
   name: string;
-  surename: string;
+  lastName: string;
   email: string;
   password: string;
   avatar: string;
@@ -9,10 +9,10 @@ export class Tutor {
   cycle: string;
 
 
-  constructor(tutor: {id?: number, name?: string, surename?: string, email?: string, password?: string, avatar?: string, gender?: string ,cycle?: string,}) {
+  constructor(tutor: {id?: number, name?: string, lastName?: string, email?: string, password?: string, avatar?: string, gender?: string ,cycle?: string,}) {
     this.id = tutor.id || 0;
     this.name = tutor.name || '';
-    this.surename = tutor.surename || '';
+    this.lastName = tutor.lastName || '';
     this.email = tutor.email || '';
     this.password = tutor.password || '';
     this.avatar = tutor.avatar || '';

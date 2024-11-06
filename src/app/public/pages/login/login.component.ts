@@ -8,9 +8,10 @@ import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIcon} from "@angular/material/icon";
 import {MatMenu, MatMenuTrigger} from "@angular/material/menu";
-import {LanguageSwitcherComponent} from "../../../public/components/language-switcher/language-switcher.component";
+import {LanguageSwitcherComponent} from "../../components/language-switcher/language-switcher.component";
 import {Router} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
+import {AuthService} from "../../services/Auth.service";
 
 @Component({
   selector: 'app-login',
@@ -32,26 +33,48 @@ import {TranslateModule} from "@ngx-translate/core";
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string = '';
 
-  constructor(private fb: FormBuilder,private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-
-    }
-  }
-
-  onLogin() {
-    this.router.navigate(['LogIn']).then();
-  }
-
   onSignUp() {
     this.router.navigate(['Register']).then();
   }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.errorMessage = '';
+
+      this.authService.login(email, password).subscribe({
+        next: (users: any[]) => {
+          if (users.length > 0) {
+            const user = users[0];
+            this.authService.setCurrentUser(user);
+            
+            this.authService.setIsTutor(user.role === 'teacher');
+
+            this.router.navigate(['Dashboard']).then();
+          } else {
+            this.errorMessage = 'Invalid credentials. Please try again.';
+          }
+        },
+        error: (error) => {
+          console.error('Error logging in', error);
+          this.errorMessage = 'An error occurred. Please try again later.';
+        },
+        complete: () => {
+          console.log('Authentication process completed.');
+        }
+      });
+    } else {
+      this.errorMessage = 'Please fill out the form correctly.';
+    }
+  }
 }
+

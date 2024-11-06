@@ -1,0 +1,42 @@
+<mat-card *ngIf="currentUser" class="profile-card">
+  <div class="profile-header">
+    <div class="avatar-container">
+      <img [src]="currentUser.avatar" alt="Avatar" class="avatar">
+    </div>
+  </div>
+
+  <mat-card-content class="profile-content">
+    <h2 class="name">{{ currentUser.name }} {{ currentUser.lastName }}</h2>
+    <p class="role" *ngIf="currentUser.role === 'teacher'">{{'footer.teacher' | translate }}</p>
+    <p class="role" *ngIf="currentUser.role === 'student'">{{'footer.student' | translate }}</p>
+    <mat-list class="info-list">
+      <mat-list-item>
+        <mat-icon>email</mat-icon>
+        <span>{{'footer.pEmail' | translate }}: {{ currentUser.email }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>work</mat-icon>
+        <span *ngIf="currentUser.role === 'teacher'">{{'footer.pRole' | translate }}: {{'footer.teacher' | translate }}</span>
+        <span *ngIf="currentUser.role === 'student'">{{'footer.pRole' | translate }}: {{'footer.student' | translate }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>person</mat-icon>
+        <span *ngIf="currentUser.gender === 'male'">{{'footer.pGender' | translate }}: {{ 'footer.pMale' | translate }}</span>
+        <span *ngIf="currentUser.gender === 'female'">{{'footer.pGender' | translate }}: {{ 'footer.pFemale' | translate }}</span>
+        <span *ngIf="currentUser.gender === 'other'">{{'footer.pGender' | translate }}: {{ 'footer.pOther' | translate }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>calendar_today</mat-icon>
+        <span>{{ currentUser.cycle }}° {{'footer.semester' | translate }}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <mat-card-actions class="action-buttons">
+    <button mat-stroked-button color="warn" (click)="goBack($event)">
+      <mat-icon>keyboard_arrow_left</mat-icon>{{'footer.pBack' | translate}}</button>
+    <button mat-flat-button color="warn" (click)="navigateToSettings()">
+      <mat-icon>edit</mat-icon> {{'footer.pEditProfile' | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>

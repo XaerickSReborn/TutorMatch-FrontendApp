@@ -1,13 +1,13 @@
 <h2 mat-dialog-title style="color: #ffffff;">
-  Add New Tutoring
+  {{ 'footer.AddNewTutoring' | translate }}
   <button mat-icon-button (click)="closeDialog()" style="float: right;">
     <mat-icon>close</mat-icon>
   </button>
 </h2>
 
 <div mat-dialog-content>
-  <form #tutoringForm="ngForm">
-    <h3 style="color: #ffffff;">Course semester</h3>
+  <form style="color: #ffffff;" #tutoringForm="ngForm">
+    <h3 style="color: #ffffff;">{{ 'footer.CourseSemester' | translate }}</h3>
     <div class="semester-buttons">
       <button mat-stroked-button *ngFor="let semester of semesters"
               [class.selected]="selectedSemester === semester"
@@ -16,128 +16,83 @@
       </button>
     </div>
 
-    <h3 style="color: #ffffff;">Course name</h3>
-    <mat-form-field appearance="outline">
-      <mat-select [(ngModel)]="selectedCourse" name="courseName" placeholder="Select course name" required>
-        <mat-option *ngFor="let course of availableCourses" [value]="course.name">
+    <h3 style="color: #ffffff;">{{ 'footer.CourseName' | translate }}</h3>
+    <mat-form-field color="warn" appearance="outline">
+      <mat-select [(ngModel)]="selectedCourse" name="courseName" placeholder="{{ 'footer.SelectCourse' | translate }}" required>
+        <mat-option  *ngFor="let course of availableCourses" [value]="course.name">
           {{course.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <h3 style="color: #ffffff;">Price</h3>
-    <mat-form-field appearance="outline">
-      <input matInput type="number" [(ngModel)]="price" name="price" placeholder="Enter the price" required>
+    <h3 style="color: #ffffff;">{{ 'footer.Price' | translate }}</h3>
+    <mat-form-field color="warn" appearance="outline">
+      <input matInput type="number" [(ngModel)]="price" name="price" placeholder="{{ 'footer.EnterPrice' | translate }}" min="0" required>
     </mat-form-field>
 
-    <h3 style="color: #ffffff;">Description</h3>
-    <mat-form-field appearance="outline">
-      <textarea matInput [(ngModel)]="description" name="description" placeholder="Enter your course description" rows="4" required></textarea>
+    <h3 style="color: #ffffff;">{{ 'footer.CourseDescription' | translate }}</h3>
+    <mat-form-field color="warn" appearance="outline">
+      <textarea matInput [(ngModel)]="description" name="description" placeholder="{{ 'footer.EnterCourseDescription' | translate }}" rows="5" required></textarea>
     </mat-form-field>
 
-    <h3 style="color: #ffffff;">Course image</h3>
-    <button mat-flat-button color="warn">
-      Upload image
-    </button>
-    <span class="upload-text">Upload your course image</span>
+    <h3 style="color: #ffffff;">{{ 'footer.CourseImage' | translate }}</h3>
+    <label class="upload-button" for="courseImage">{{ 'footer.pUpload' | translate }}
+      <input type="file" id="courseImage" (change)="onFileSelected($event)" style="display: none;">
+    </label>
+    <span class="upload-text">{{ 'footer.UploadCourseImage' | translate }}</span>
+    <img *ngIf="courseImage" [src]="courseImage" alt="Course Image" class="avatar">
+    <div *ngIf="imageUploaded" class="upload-message">{{ 'footer.pImageUploaded' | translate }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-    <h3 style="color: #ffffff;">What will they learn</h3>
-    <mat-form-field appearance="outline">
-      <textarea matInput [(ngModel)]="whatTheyWillLearn" name="whatTheyWillLearn" placeholder="Enter what your future students will learn" rows="4" required></textarea>
+    <h3 style="color: #ffffff;">{{ 'footer.WhatWillTheyLearn' | translate }}</h3>
+    <mat-form-field color="warn" appearance="outline">
+      <textarea matInput [(ngModel)]="whatTheyWillLearn" name="whatTheyWillLearn" placeholder="{{ 'footer.WhatPlaceholders' | translate }}" rows="4" required></textarea>
     </mat-form-field>
 
-    <h3 style="color: #ffffff;">Your available times</h3>
-    <p class="subtitle">Enter your possible or available times</p>
+    <h3 style="color: #ffffff;">{{ 'footer.YourAvailableTimes' | translate }}</h3>
+    <p class="subtitle">{{ 'footer.EnterYourAvailableTimes' | translate }}</p>
 
     <table class="time-table">
-      <thead>
-      <tr>
-        <th>SUN</th>
-        <th>MON</th>
-        <th>TUE</th>
-        <th>WED</th>
-        <th>THU</th>
-        <th>FRI</th>
-        <th>SAT</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!-- Fixed schedules -->
-      <tr>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(0, '10-11')}" (click)="toggleTimeSlot(0, '10-11')">10-11</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(1, '10-11')}" (click)="toggleTimeSlot(1, '10-11')">10-11</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(2, '10-11')}" (click)="toggleTimeSlot(2, '10-11')">10-11</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(3, '10-11')}" (click)="toggleTimeSlot(3, '10-11')">10-11</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(4, '10-11')}" (click)="toggleTimeSlot(4, '10-11')">10-11</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(5, '10-11')}" (click)="toggleTimeSlot(5, '10-11')">10-11</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(6, '10-11')}" (click)="toggleTimeSlot(6, '10-11')">10-11</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(0, '11-12')}" (click)="toggleTimeSlot(0, '11-12')">11-12</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(1, '11-12')}" (click)="toggleTimeSlot(1, '11-12')">11-12</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(2, '11-12')}" (click)="toggleTimeSlot(2, '11-12')">11-12</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(3, '11-12')}" (click)="toggleTimeSlot(3, '11-12')">11-12</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(4, '11-12')}" (click)="toggleTimeSlot(4, '11-12')">11-12</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(5, '11-12')}" (click)="toggleTimeSlot(5, '11-12')">11-12</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(6, '11-12')}" (click)="toggleTimeSlot(6, '11-12')">11-12</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(0, '15-16')}" (click)="toggleTimeSlot(0, '15-16')">15-16</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(1, '15-16')}" (click)="toggleTimeSlot(1, '15-16')">15-16</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(2, '15-16')}" (click)="toggleTimeSlot(2, '15-16')">15-16</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(3, '15-16')}" (click)="toggleTimeSlot(3, '15-16')">15-16</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(4, '15-16')}" (click)="toggleTimeSlot(4, '15-16')">15-16</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(5, '15-16')}" (click)="toggleTimeSlot(5, '15-16')">15-16</button>
-        </td>
-        <td>
-          <button mat-stroked-button [ngClass]="{'selected': isSelected(6, '15-16')}" (click)="toggleTimeSlot(6, '15-16')">15-16</button>
-        </td>
-      </tr>
-      <!-- Continue in the same way for other schedules -->
-      </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>{{ 'footer.Sun' | translate }}</th>
+      <th>{{ 'footer.Mon' | translate }}</th>
+      <th>{{ 'footer.Tue' | translate }}</th>
+      <th>{{ 'footer.Wed' | translate }}</th>
+      <th>{{ 'footer.Thu' | translate }}</th>
+      <th>{{ 'footer.Fri' | translate }}</th>
+      <th>{{ 'footer.Sat' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let timeSlot of timeSlots">
+      <td>
+        <button mat-stroked-button [ngClass]="{'selected': isSelected(0, timeSlot)}" (click)="toggleTimeSlot(0, timeSlot)">{{ timeSlot }}</button>
+      </td>
+      <td>
+        <button mat-stroked-button [ngClass]="{'selected': isSelected(1, timeSlot)}" (click)="toggleTimeSlot(1, timeSlot)">{{ timeSlot }}</button>
+      </td>
+      <td>
+        <button mat-stroked-button [ngClass]="{'selected': isSelected(2, timeSlot)}" (click)="toggleTimeSlot(2, timeSlot)">{{ timeSlot }}</button>
+      </td>
+      <td>
+        <button mat-stroked-button [ngClass]="{'selected': isSelected(3, timeSlot)}" (click)="toggleTimeSlot(3, timeSlot)">{{ timeSlot }}</button>
+      </td>
+      <td>
+        <button mat-stroked-button [ngClass]="{'selected': isSelected(4, timeSlot)}" (click)="toggleTimeSlot(4, timeSlot)">{{ timeSlot }}</button>
+      </td>
+      <td>
+        <button mat-stroked-button [ngClass]="{'selected': isSelected(5, timeSlot)}" (click)="toggleTimeSlot(5, timeSlot)">{{ timeSlot }}</button>
+      </td>
+      <td>
+        <button mat-stroked-button [ngClass]="{'selected': isSelected(6, timeSlot)}" (click)="toggleTimeSlot(6, timeSlot)">{{ timeSlot }}</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
   </form>
 </div>
 
 <div mat-dialog-actions align="end">
-  <button mat-flat-button color="warn" (click)="onConfirmAddTutoring()" [disabled]="!isFormValidFlag">Confirm Add Tutoring</button>
+  <button mat-flat-button color="warn" (click)="onConfirmAddTutoring()" [disabled]="!isFormValidFlag">{{ 'footer.AddTutoring' | translate }}</button>
 </div>

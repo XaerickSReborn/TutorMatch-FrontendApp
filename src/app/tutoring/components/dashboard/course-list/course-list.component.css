@@ -1,0 +1,53 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.course-card {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.course-card:hover{
+  scale: 1.05;
+  transition: 0.3s ease-in-out;
+}
+
+.course-card img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.request-tutoring-button {
+  background-color: #7b0523;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.request-tutoring-button:hover {
+  background-color: #f6405f;
+}

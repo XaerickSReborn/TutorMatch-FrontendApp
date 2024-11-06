@@ -1,0 +1,101 @@
+  <div class="payment-header">
+    <h2>{{'footer.SecurePayment' | translate }}</h2>
+    <p>{{'footer.SelectedPlan' | translate }}: {{ selectedPlan }} - ${{ selectedPrice }}</p>
+    <p>{{'footer.ChoosePaymentMethod' | translate }}</p>
+  </div>
+
+  <div class="payment-options">
+    <button class="payment-option" [class.active]="paymentMethod === 'credit-card'" (click)="setPaymentMethod('credit-card')">
+      <i class="fas fa-credit-card"></i>
+      {{'footer.CreditCard' | translate }}
+    </button>
+    <button class="payment-option" [class.active]="paymentMethod === 'paypal'" (click)="setPaymentMethod('paypal')">
+      <i class="fab fa-paypal"></i>
+      PayPal
+    </button>
+  </div>
+
+  <div class="card-wrapper" *ngIf="paymentMethod === 'credit-card'">
+    <div class="credit-card">
+      <div class="card-front">
+        <div class="card-logo">{{ cardType }}</div>
+        <div class="card-number">{{ cardNumberDisplay || '•••• •••• •••• ••••' }}</div>
+        <div class="card-details">
+          <div class="card-holder">{{ cardHolder || 'Your Name' }}</div>
+          <div class="expiry-date">
+            <span class="exp-label">EXP:</span>
+            <span class="exp-date">{{ expiryDate || 'MM/YY' }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-back">
+        <div class="cvv-box">{{ cvv || '•••' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <form class="form-container" (ngSubmit)="onSubmit()" novalidate *ngIf="paymentMethod === 'credit-card'">
+    <div class="form-group">
+      <label for="name">{{'footer.NameOnCard' | translate }}</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="cardHolder"
+        required
+        [ngClass]="{'invalid': !nameValid}"
+        (input)="validateName()"
+        placeholder="dddd"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="cardNumber">{{'footer.CardNumber' | translate }}</label>
+      <input
+        type="text"
+        id="cardNumber"
+        name="cardNumber"
+        [(ngModel)]="cardNumber"
+        required
+        [ngClass]="{'invalid': !cardNumberValid}"
+        (input)="updateCardNumber()"
+        placeholder="1234 5678 9012 3456"
+      >
+    </div>
+
+    <div class="form-row">
+      <div class="form-group half-width">
+        <label for="expiryDate">{{'footer.ExpiryDate' | translate }}</label>
+        <input
+          type="text"
+          id="expiryDate"
+          name="expiryDate"
+          [(ngModel)]="expiryDate"
+          placeholder="MM/YY"
+          required
+          [ngClass]="{'invalid': !expiryValid}"
+          (input)="validateExpiry()"
+        >
+      </div>
+
+      <div class="form-group half-width">
+        <label for="cvv">CVV</label>
+        <input
+          type="text"
+          id="cvv"
+          name="cvv"
+          [(ngModel)]="cvv"
+          required
+          [ngClass]="{'invalid': !cvvValid}"
+          (input)="validateCVV()"
+          placeholder="123"
+        >
+      </div>
+    </div>
+    <button type="submit" class="btn-submit" [disabled]="!formValid">{{'footer.PayNow' | translate }}</button>
+  </form>
+
+  <div class="paypal-container" *ngIf="paymentMethod === 'paypal'">
+    <p>{{'footer.Click' | translate }}</p>
+    <button class="btn-paypal" (click)="openPayPalLogin()">{{'footer.LoginPayPal' | translate }}</button>
+  </div>

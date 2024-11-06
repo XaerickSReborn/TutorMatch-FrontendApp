@@ -1,0 +1,69 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+  <div class="container">
+    <img class="logo" src="TutorMatch.png" alt="TutorMatch Logo" height="40" width="40">
+    <span class="name">TutorMatch</span>
+  </div>
+  <div class="icon-buttons">
+    <button mat-button class="custom-button login-button" (click)="onLogin()">Log In</button>
+    <button mat-button class="custom-button register-button" (click)="onSignUp()">Sign Up</button>
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Change language">
+      <mat-icon>language</mat-icon>
+    </button>
+  </div>
+  <mat-menu #languageMenu="matMenu">
+    <app-language-switcher></app-language-switcher>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="plans-container">
+  <h1>{{'footer.Become' | translate }}</h1>
+  <p>{{'footer.Offer' | translate }}</p>
+
+  <div class="plan-cards">
+    <div class="plan-card">
+      <h2>{{'footer.Basic' | translate }}</h2>
+      <p class="price">$1.99</p>
+      <ul>
+        <li>{{'footer.Basic1' | translate }}</li>
+        <li>{{'footer.Basic2' | translate }}</li>
+        <li>{{'footer.Basic3' | translate }}</li>
+        <li>{{'footer.Basic4' | translate }}</li>
+      </ul>
+      <button mat-raised-button color="accent" (click)="selectPlan('BASIC', 1.99)">{{'footer.BuyPlan' | translate }}</button>
+    </div>
+
+    <div class="plan-card">
+      <h2>{{'footer.Standard' | translate }}</h2>
+      <p class="price">$4.99</p>
+      <ul>
+        <li>{{'footer.Standard1' | translate }}</li>
+        <li>{{'footer.Standard2' | translate }}</li>
+        <li>{{'footer.Standard3' | translate }}</li>
+        <li>{{'footer.Standard4' | translate }}</li>
+        <li>{{'footer.Standard5' | translate }}</li>
+      </ul>
+      <button mat-raised-button color="accent" (click)="selectPlan('STANDARD', 4.99)">{{'footer.BuyPlan' | translate }}</button>
+    </div>
+
+    <div class="plan-card">
+      <h2>{{'footer.Premium' | translate }}</h2>
+      <p class="price">$9.99</p>
+      <ul>
+        <li>{{'footer.Premium1' | translate }}</li>
+        <li>{{'footer.Premium2' | translate }}</li>
+        <li>{{'footer.Premium3' | translate }}</li>
+        <li>{{'footer.Premium4' | translate }}</li>
+        <li>{{'footer.Premium5' | translate }}</li>
+        <li>{{'footer.Premium6' | translate }}</li>
+      </ul>
+      <button mat-raised-button color="accent" (click)="selectPlan('PREMIUM', 9.99)">{{'footer.BuyPlan' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="showPayment">
+  <div class="payment-container">
+    <app-payment [selectedPlan]="selectedPlan" [selectedPrice]="selectedPrice"></app-payment>
+    <button mat-raised-button class="close-btn" color="warn" (click)="togglePayment()">{{'footer.Close' | translate }}</button>
+  </div>
+</div>

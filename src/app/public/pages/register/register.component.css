@@ -1,0 +1,130 @@
+.custom-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #252525;
+  height: 80px;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+}
+
+.name{
+  font-weight: bold;
+  font-size: 24px;
+  color:white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.icon-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-button {
+  text-transform: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button[type="button"] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  color: white;
+  background-color: #D83749;
+  border: none;
+  border-radius: 8px;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #7a0423;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.login-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.register-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+mat-radio-button {
+  margin-right: 15px;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(-27deg, rgba(105,17,31,1) 0%, rgba(216,55,73,1) 50%, rgba(105,17,31,1) 100%);
+}
+
+.signup-card {
+  width: 600px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #333;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signup-card h2, .signup-card h3 {
+  color: white;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.signup-button {
+  width: 100%;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 4px;
+}
+
+
+
+

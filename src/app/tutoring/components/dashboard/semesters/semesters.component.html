@@ -1,13 +1,13 @@
 <div class="semesters-section">
-    <h3>{{'footer.softwareSemesters' | translate}}</h3>
-    <div class="semesters-grid">
-      <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile *ngFor="let semester of semesters">
-          <mat-card>
-            <img mat-card-image [src]="semester.image" alt="{{ semester.name }}">
-            <p>{{ semester.labelKey | translate}}</p>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
+  <h3>{{ 'footer.softwareSemesters' | translate }}</h3>
+  <div class="semesters-grid">
+    <mat-grid-list cols="4" rowHeight="200px">
+      <mat-grid-tile *ngFor="let semester of semesters">
+        <mat-card (click)="onSemesterClick(semester)">
+          <img mat-card-image [src]="semester.image" alt="{{ semester.name }}">
+          <p>{{ semester.labelKey | translate}}</p>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
+</div>

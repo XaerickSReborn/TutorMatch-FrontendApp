@@ -19,8 +19,11 @@ export class AddTutoringDialogComponent {
   whatTheyWillLearn = '';
   daysOfWeek = [0, 1, 2, 3, 4, 5, 6];
   timeSlots = ['10-11', '11-12', '15-16', '17-18', '20-21'];
+  currentUser: any;
   availableTimes: { [day: number]: { [timeSlot: string]: boolean } } = {};
-
+  courseImage: string | undefined;
+  imageUploaded: boolean = false;
+  errorMessage: string = '';
   isFormValidFlag: boolean = false;
 
   allSemesters = [
@@ -86,6 +89,15 @@ export class AddTutoringDialogComponent {
     private tutoringService: TutoringService
   ) {
     this.initializeTimeSlots();
+    this.loadCurrentUser();
+
+  }
+
+  loadCurrentUser(): void {
+    const userData = localStorage.getItem('currentUser');
+    if (userData) {
+      this.currentUser = JSON.parse(userData);
+    }
   }
 
   initializeTimeSlots(): void {
@@ -100,6 +112,7 @@ export class AddTutoringDialogComponent {
   onSemesterSelected(): void {
     const selectedSemesterObj = this.allSemesters.find(sem => sem.name === this.selectedSemester);
     this.availableCourses = selectedSemesterObj ? selectedSemesterObj.courses : [];
+    this.checkFormValidity();
   }
 
   toggleTimeSlot(day: number, timeSlot: string): void {
@@ -112,7 +125,13 @@ export class AddTutoringDialogComponent {
   }
 
   isFormValid(): boolean {
-    return this.areTimeSlotsSelected();
+  return this.selectedSemester !== '' &&
+         this.selectedCourse !== '' &&
+         this.description !== '' &&
+         this.price > 0 &&
+         this.whatTheyWillLearn !== '' &&
+         this.courseImage !== undefined &&
+         this.areTimeSlotsSelected();
   }
 
   areTimeSlotsSelected(): boolean {
@@ -131,7 +150,7 @@ export class AddTutoringDialogComponent {
   }
 
   onConfirmAddTutoring(): void {
-    if (this.isFormValid()) {
+    if (this.isFormValid() && this.price > 0) {
       const selectedTimes = this.getSelectedTimes();
       const newTutoring = {
         id: 0,
@@ -139,11 +158,11 @@ export class AddTutoringDialogComponent {
         description: this.description || 'No description provided',
         price: this.price || 0,
         times: selectedTimes,
-        image: '',
-        tutorId: 1,
+        image: this.courseImage || '',
+        whatTheyWillLearn: this.whatTheyWillLearn,
+        tutorId: this.currentUser?.tutorId || 1,
         courseId: this.availableCourses.find(course => course.name === this.selectedCourse)?.id || 1
       };
-
       this.createTutoring(newTutoring);
     }
   }
@@ -168,17 +187,31 @@ export class AddTutoringDialogComponent {
   createTutoring(tutoring: any): void {
     this.tutoringService.createTutoring(tutoring).subscribe({
       next: (response) => {
-        console.log('Tutoring added successfully:', response);
         this.addTutoring.emit(response);
         this.dialogRef.close(response);
       },
-      error: (err) => {
-        console.error('Error adding tutoring:', err);
-      }
     });
   }
 
-
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg') {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.courseImage = e.target.result;
+          this.imageUploaded = true;
+          this.errorMessage = '';
+          this.checkFormValidity();
+        };
+        reader.readAsDataURL(file);
+      } else {
+        this.errorMessage = 'Invalid file type. Please select a PNG or JPEG file.';
+        this.imageUploaded = false;
+        this.checkFormValidity();
+      }
+    }
+  }
 
 }
 

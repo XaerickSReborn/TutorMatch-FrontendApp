@@ -1,80 +1,87 @@
 .custom-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #252525;
-    height: 80px;
-    position: sticky;
-    z-index: 100;
-    top: 0;
-  }
-  
-  .container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .name{
-    font-weight: bold;
-    font-size: 24px;
-    color:white;
-  }
-  
-  .logo {
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .search-bar-container {
-    margin-top: 20px;
-    display: flex;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .search-bar {
-    max-width: 500px;
-    width: 100%;
-  
-  }
-  
-  .search-bar-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .search-bar .mat-icon {
-    color: white;
-  }
-  
-  .search-bar input::placeholder {
-    color: white;
-  
-  }
-  
-  
-  .search-bar input:focus {
-    color: white;
-  }
-  
-  .search-bar input {
-    color: white;
-  }
-  
-  .icon-buttons {
-    display: flex;
-  }
-  
-  .icon-buttons button {
-    margin-left: 8px;
-    margin-right: 8px;
-    height: 48px;
-  }
-  
-  .mat-form-field-wrapper {
-    height: 48px;
-  }
-  
-  .mat-form-field-flex {
-    height: 100%;
-  }  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #252525;
+  height: 80px;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.name{
+  font-weight: bold;
+  font-size: 24px;
+  color:white;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.search-bar-container {
+  margin-top: 20px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.search-bar {
+  max-width: 500px;
+  width: 100%;
+
+}
+
+.avatar img {
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar .mat-icon {
+  color: white;
+}
+
+.search-bar input::placeholder {
+  color: white;
+
+}
+
+
+.search-bar input:focus {
+  color: white;
+}
+
+.search-bar input {
+  color: white;
+}
+
+.icon-buttons {
+  display: flex;
+}
+
+.icon-buttons button {
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 48px;
+}
+
+.mat-form-field-wrapper {
+  height: 48px;
+}
+
+.mat-form-field-flex {
+  height: 100%;
+}

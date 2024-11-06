@@ -19,6 +19,7 @@ export class AppComponent {
     {path:'/LogIn',title:'Login'},
     {path:'/Register',title:'Register'},
 
+
   ]
   constructor(translate: TranslateService) {
     translate.setDefaultLang('en');

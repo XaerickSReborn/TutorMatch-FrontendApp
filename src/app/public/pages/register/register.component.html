@@ -1,0 +1,76 @@
+<mat-toolbar color="warn" class="custom-toolbar">
+  <!-- logo  -->
+  <div class="container">
+    <img class="logo" src="TutorMatch.png" alt="user" height="118" width="50">
+    <div>
+      <span class="name">TutorMatch</span>
+    </div>
+  </div>
+  <div class="icon-buttons">
+    <button mat-button class="custom-button login-button" (click)="onLogin()">Log In</button>
+    <button mat-button class="custom-button register-button">Sign Up</button>
+
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Change language">
+      <mat-icon>language</mat-icon>
+    </button>
+  </div>
+
+  <mat-menu #languageMenu="matMenu">
+    <app-language-switcher></app-language-switcher>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="signup-container">
+  <mat-card class="signup-card">
+    <h2>{{ 'footer.messageRegister' | translate }}</h2>
+    <h3>{{ 'footer.titleRegister' | translate }}</h3>
+
+    <form [formGroup]="registerForm" class="signup-form">
+      <mat-form-field color="warn" appearance="fill">
+        <mat-label>{{ 'footer.pName' | translate }}</mat-label>
+        <input matInput type="text" formControlName="name" [placeholder]="'footer.pName' | translate" required>
+      </mat-form-field>
+
+      <mat-form-field color="warn" appearance="fill">
+        <mat-label>{{ 'footer.pLastName' | translate }}</mat-label>
+        <input matInput type="text" formControlName="lastName" [placeholder]="'footer.pLastName' | translate" required>
+      </mat-form-field>
+
+      <mat-form-field color="warn" appearance="fill">
+        <mat-label>{{ 'footer.pGender' | translate }}</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">{{ 'footer.pMale' | translate }}</mat-option>
+          <mat-option value="female">{{ 'footer.pFemale' | translate }}</mat-option>
+          <mat-option value="other">{{ 'footer.pOther' | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field color="warn" appearance="fill">
+        <mat-label>{{ 'footer.pCycle' | translate }}</mat-label>
+        <input matInput type="number" formControlName="cycle" [placeholder]="'footer.pCycle' | translate" min="1" max="10" required>
+      </mat-form-field>
+
+      <mat-form-field color="warn" appearance="fill">
+        <mat-label>{{ 'footer.pEmail' | translate }}</mat-label>
+        <input matInput type="email" formControlName="email" [placeholder]="'footer.pEmail' | translate" required>
+        <mat-error *ngIf="registerForm.get('email')?.hasError('invalidEmailDomain')">
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="warn" appearance="fill">
+        <mat-label>{{ 'footer.pPassword' | translate }}</mat-label>
+        <input matInput type="password" formControlName="password" [placeholder]="'footer.pPassword' | translate" required>
+      </mat-form-field>
+
+      <div class="radio-group">
+        <mat-radio-group formControlName="role" color="warn" (change)="onRoleChange($event)">
+          <mat-radio-button value="teacher">{{ 'footer.teacher' | translate }}</mat-radio-button>
+          <mat-radio-button value="student">{{ 'footer.student' | translate }}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <button mat-raised-button color="warn" type="button" (click)="onSignUp()">{{ 'footer.signUp' | translate }}</button>
+    </form>
+  </mat-card>
+</div>
+

@@ -24,7 +24,11 @@
     padding: 10px;
   }
 
-  mat-card {
+.clickable {
+  cursor: pointer;
+}
+
+mat-card {
     background-color: #252525;
     color: white;
     padding: 20px;

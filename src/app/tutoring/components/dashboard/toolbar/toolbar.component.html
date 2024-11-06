@@ -1,39 +1,50 @@
 <!--toolbar-->
-<mat-toolbar color="primary" class="custom-toolbar">
-    <!-- logo  -->
-    <div class="container">
-      <img class="logo" ngSrc="TutorMatch.png" alt="user" height="118" width="50">
-      <div>
-        <span class="name">TutorMatch</span>
-      </div>
+<mat-toolbar color="warn" class="custom-toolbar">
+  <!-- logo  -->
+  <div class="container">
+    <img class="logo" ngSrc="TutorMatch.png" alt="user" height="118" width="50">
+    <div>
+      <span class="name">TutorMatch</span>
     </div>
+  </div>
 
-    <!-- search bar -->
-    <div class="search-bar-container">
-      <mat-form-field class="search-bar" appearance="outline">
-        <input matInput [placeholder]="'footer.search' | translate">
-        <button mat-icon-button matSuffix aria-label="Search">
-          <mat-icon>search</mat-icon>
-        </button>
-      </mat-form-field>
-    </div>
-
-
-    <!-- icon-buttons -->
-    <div class="icon-buttons">
-      <button mat-icon-button color="accent" aria-label="Add course" (click)="openAddTutoringDialog()">
-        <mat-icon>add</mat-icon>
+  <!-- search bar -->
+  <div class="search-bar-container">
+    <mat-form-field color="warn" class="search-bar" appearance="outline">
+      <input matInput [placeholder]="'footer.search' | translate">
+      <button mat-icon-button matSuffix aria-label="Search">
+        <mat-icon>search</mat-icon>
       </button>
+    </mat-form-field>
+  </div>
 
-      <button mat-icon-button aria-label="Profile">
-        <mat-icon>account_circle</mat-icon>
-      </button>
 
-      <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Change language">
-        <mat-icon>language</mat-icon>
-      </button>
-    </div>
-    <mat-menu #languageMenu="matMenu">
-      <app-language-switcher></app-language-switcher>
-    </mat-menu>
-  </mat-toolbar>
+  <!-- icon-buttons -->
+  <div class="icon-buttons">
+    <button *ngIf="isTutor" mat-icon-button color="warn" aria-label="Add course" (click)="openAddTutoringDialog()">
+      <mat-icon color="warn">add</mat-icon>
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile" class="avatar">
+      <img [src]="currentUser.avatar" alt="Avatar">
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Change language">
+      <mat-icon color="warn">language</mat-icon>
+    </button>
+  </div>
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item (click)="navigateToSettings()">
+      <span>{{ 'footer.pSettingsToolbar' | translate }}</span>
+    </button>
+    <button mat-menu-item (click)="navigateToProfile()">
+      <span>{{ 'footer.pProfileToolbar' | translate }}</span>
+    </button>
+    <button mat-menu-item (click)="onLogout()">
+      <span>{{ 'footer.pLogout' | translate }}</span>
+    </button>
+  </mat-menu>
+  <mat-menu #languageMenu="matMenu">
+    <app-language-switcher></app-language-switcher>
+  </mat-menu>
+</mat-toolbar>

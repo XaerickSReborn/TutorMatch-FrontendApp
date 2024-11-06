@@ -1,0 +1,32 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <h2>{{ 'footer.pSettings' | translate }}</h2>
+  <form [formGroup]="settingsForm" (ngSubmit)="onSave()">
+    <div>
+      <label class="settings-title">{{ 'footer.pProfile' | translate }}<br></label>
+      <img *ngIf="settingsForm.get('avatar')?.value" [src]="settingsForm.get('avatar')?.value" alt="Avatar" class="avatar">
+      <label class="upload-button" for="avatar">{{ 'footer.pUpload' | translate }}
+      <input  type="file" id="avatar" formControlName="avatar" (change)="onFileSelected($event)" style="display: none;">
+      </label>
+      <div *ngIf="imageUploaded" class="upload-message">{{ 'footer.pImageUploaded' | translate }}</div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'footer.pGender' | translate }}</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">{{ 'footer.pMale' | translate }}</mat-option>
+          <mat-option value="female">{{ 'footer.pFemale' | translate }}</mat-option>
+          <mat-option value="other">{{ 'footer.pOther' | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'footer.pCycle' | translate }}</mat-label>
+        <input matInput type="number" formControlName="cycle">
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="warn" type="submit">{{'footer.pSave' | translate}}</button>
+    <button mat-raised-button color="warn" type="button" (click)="goBack($event)">{{ 'footer.pBack' | translate }}</button>
+  </form>
+</div>

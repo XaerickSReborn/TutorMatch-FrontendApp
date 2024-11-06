@@ -1,0 +1,57 @@
+<app-toolbar></app-toolbar>
+<div class="container" *ngIf="course">
+
+  <div class="course-detail">
+    <div class="course-info">
+      <div class="breadcrumbs">
+        <a href="#" (click)="goBack($event)">{{ semesterName  }}</a> > <a>{{ course?.title || 'Curso no encontrado' }}</a>
+      </div>
+      <h1 class="course-title">{{ course?.title }}</h1>
+      <p class="course-description">{{ course?.description }}</p>
+      <p class="course-tutor" *ngIf="tutorName">{{ 'footer.DictatedBy' | translate }}: {{ tutorName }}</p>
+      <div class="what-you-will-learn">
+        <h3>{{ 'footer.WhatWillLearn' | translate }}</h3>
+        <p *ngFor="let item of course?.whatTheyWillLearn.split(',')">✔ {{ item }}</p>
+      </div>
+
+      <div class="tutor-available-times">
+        <h3>{{ 'footer.TutorAvT' | translate }}</h3>
+        <table class="time-table">
+          <thead>
+          <tr>
+            <th>{{ 'footer.Sun' | translate }}</th>
+            <th>{{ 'footer.Mon' | translate }}</th>
+            <th>{{ 'footer.Tue' | translate }}</th>
+            <th>{{ 'footer.Wed' | translate }}</th>
+            <th>{{ 'footer.Thu' | translate }}</th>
+            <th>{{ 'footer.Fri' | translate }}</th>
+            <th>{{ 'footer.Sat' | translate }}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let timeSlot of timeSlots">
+            <td [ngClass]="{'validated': isTimeSlotValidated(0, timeSlot)}">{{ timeSlot }}</td>
+            <td [ngClass]="{'validated': isTimeSlotValidated(1, timeSlot)}">{{ timeSlot }}</td>
+            <td [ngClass]="{'validated': isTimeSlotValidated(2, timeSlot)}">{{ timeSlot }}</td>
+            <td [ngClass]="{'validated': isTimeSlotValidated(3, timeSlot)}">{{ timeSlot }}</td>
+            <td [ngClass]="{'validated': isTimeSlotValidated(4, timeSlot)}">{{ timeSlot }}</td>
+            <td [ngClass]="{'validated': isTimeSlotValidated(5, timeSlot)}">{{ timeSlot }}</td>
+            <td [ngClass]="{'validated': isTimeSlotValidated(6, timeSlot)}">{{ timeSlot }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="course-price-section">
+      <img *ngIf="courseImage" [src]="courseImage" alt="Imagen del curso">
+      <h2 *ngIf="coursePrice" class="course-price">S/. {{ coursePrice }}</h2>
+      <a *ngIf="tutorEmail"
+         [href]="'mailto:' + tutorEmail + '?subject=Tutorías sobre ' + course?.title + '&body=Hola,%20me%20gustaría%20saber%20más%20sobre%20esta%20tutoría.%20[Edita%20si%20crees%20necesario]'"
+         target="_blank">
+        <button class="request-tutoring-button">{{ 'footer.RequestTutoring' | translate }}</button>
+      </a>
+    </div>
+  </div>
+  <app-footer-content></app-footer-content>
+</div>

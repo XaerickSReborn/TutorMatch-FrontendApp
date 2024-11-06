@@ -1,49 +1,56 @@
 .user-greeting {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #333;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
 }
 
-  .user-info {
-    height: 200px;
-    margin-left: 500px;
-    display: flex;
-    color: #ffffff;
-    align-items: center;
-  }
-  .user-details{
-    margin-bottom: 40px;
-    width: 180px;
-    color: #ffffff;
-  }
-  .user-avatar {
-    width: 120px;
-    height: 120px;
-    margin-right: 10px;
-  }
+.user-info {
+  height: 200px;
+  margin-left: 500px;
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+}
+.user-details{
+  margin-bottom: 40px;
+  width: 180px;
+  color: #ffffff;
+}
+.user-avatar {
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
+}
 
-  mat-icon {
-    width: 400px;
-    height: 400px;
-    font-size: 90px;
-    color: #ff0000;
-    margin-left: 25px;
-  }
+.user-avatar img {
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
 
-  .mat-card-title {
-    color: #ffffff;
-    text-align: justify;
-    margin-bottom: 5px;
-  }
+mat-icon {
+  width: 400px;
+  height: 400px;
+  font-size: 90px;
+  color: #ff0000;
+  margin-left: 25px;
+}
 
-  .mat-card-subtitle {
-    font-size: 20px;
-    color: #ffffff;
-  }
+.mat-card-title {
+  color: #ffffff;
+  text-align: justify;
+  margin-bottom: 5px;
+}
 
-  .edit-semester {
-    width: 9%;
-    margin-bottom: 45px;
-    margin-right: 910px;
-  }
+.mat-card-subtitle {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.edit-semester {
+  width: 9%;
+  margin-bottom: 45px;
+  margin-right: 910px;
+}

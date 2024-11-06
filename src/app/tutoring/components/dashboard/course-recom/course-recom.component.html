@@ -2,7 +2,7 @@
     <h3 style="color: #ffffff">{{'footer.whatLearn' | translate}}</h3>
       <div class="carousel-container">
       <!-- Tabs for simulating a carousel -->
-      <mat-tab-group [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChange($event)">
+      <mat-tab-group color="warn" [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChange($event)">
         <!-- Simulating carousel effect with tabs -->
         <mat-tab *ngFor="let course of recommendedCourses">
           <!-- Tab label with icon and course title -->

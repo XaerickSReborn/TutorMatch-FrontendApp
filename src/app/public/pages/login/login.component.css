@@ -8,110 +8,104 @@
     z-index: 100;
     top: 0;
   }
-  
+
   .name{
     font-weight: bold;
     font-size: 24px;
     color:white;
   }
-  
+
   .container {
     display: flex;
     align-items: center;
   }
-  
+
   .logo {
     height: 40px;
     margin-right: 10px;
   }
-  
+
   .icon-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
-  
+
   }
-  
- 
+
+
   .custom-button {
-    text-transform: none; 
+    text-transform: none;
     font-weight: bold;
     padding: 8px 16px;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  
+
   }
-  
-  
+
+
   .login-button {
     background-color: #ffffff;
-    color: #000000; 
-    border: 2px solid #000000; 
+    color: #000000;
+    border: 2px solid #000000;
   }
-  
-  
-  
+
+
+
   .register-button {
     background-color: #ffffff;
-    color: #000000; 
-    border: 2px solid #000000; 
+    color: #000000;
+    border: 2px solid #000000;
   }
-  
-  
-  
-  
-  
-  
+
   .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #430b0e, #c0392b); 
+    background: linear-gradient(-27deg, rgba(105,17,31,1) 0%, rgba(216,55,73,1) 50%, rgba(105,17,31,1) 100%);
     padding: 20px;
   }
-  
-  
+
   .login-card {
     width: 100%;
     max-width: 400px;
-    background-color: #333; 
-    color: white; 
+    background-color: #333;
+    color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
     text-align: center;
   }
-  
-  
+
+
   mat-card-title {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
     color: white;
   }
-  
+
   mat-card-subtitle {
     font-size: 16px;
     margin-bottom: 20px;
     color: #ecf0f1;
   }
-  
-  
+
+
   .form-field {
     width: 100%;
     margin-bottom: 15px;
   }
-  
+
   mat-form-field {
     width: 100%;
   }
-  
+
   mat-label {
     color: white;
   }
-  
-  
+
+
   .forgot-password {
     width: 160px;
     display: block;
@@ -120,26 +114,26 @@
     color: #ecf0f1;
     text-decoration: none;
   }
-  
+
   .forgot-password:hover {
     text-decoration: underline;
   }
-  
-  
+
+
   .submit-button {
     width: 100%;
-    background-color: #e74c3c;
+    background-color: #D83749;
     color: white;
     padding: 12px;
     font-size: 16px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
   }
-  
+
   .submit-button:hover {
     background-color: #8e7b78;
   }
-  
+
   .submit-button:disabled {
     background-color: #bdc3c7;
-  }  
+  }

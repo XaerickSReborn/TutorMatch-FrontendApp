@@ -1,0 +1,162 @@
+:root {
+  --primary-color: #3f51b5;
+  --primary-light: #757de8;
+  --primary-dark: #ffffff;
+  --text-color: #333;
+  --background-color: #f3f4f6;
+  --card-background: #ffffff;
+  --input-background: #f8f9fb;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --button-hover: #344195;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--background-color);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px var(--shadow-color);
+  font-weight: bold;
+}
+
+.settings-title{
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+form {
+  background: linear-gradient(-27deg, rgba(105,17,31,1) 0%, rgba(216,55,73,1) 50%, rgba(105,17,31,1) 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label[for="avatar"] {
+  display: inline-block;
+  background-color: #7a0423;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin: 1.5rem 0;
+}
+
+button[type="submit"],
+button[type="button"] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  color: white;
+  background-color: #7a0423;
+  border: none;
+  border-radius: 8px;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #fb4365;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+button[type="button"].secondary {
+  background-color: #ff4081;
+}
+
+button[type="button"].secondary:hover {
+  background-color: #e4356b;
+}
+
+.upload-button:hover{
+  background-color: #fb4365;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 1rem 0 0 0;
+}
+
+.upload-message {
+  color: green;
+  font-weight: bold;
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-message {
+  color: #423c3c;
+  font-weight: bold;
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: var(--input-background);
+  border-radius: 8px 8px 0 0;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: var(--primary-color);
+}
+
+::ng-deep .mat-select-value,
+::ng-deep .mat-select-arrow {
+  color: var(--text-color);
+}
+
+::ng-deep .mat-form-field-label {
+  color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  form {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Animation for form appearance */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
